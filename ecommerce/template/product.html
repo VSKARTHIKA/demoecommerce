@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{%block content %}
+<style>
+</style>
+
+<img src="{{cat.image.url}}" height="500px" width="100%"  >
+<div><h1 class="text-center mt-3 "><b><span style="text-transform:uppercase;">{{cat.name}}</span></b></h1>
+    <div class="container  p-3 " style="margin-bottom:100px;">
+        <p><b>{{cat.description}}</b></p></div></div>
+     <div class="featured-section">
+		<div class="container">
+
+			<div class="row p-5 mb-5">
+
+                {% for i in product %}
+				<div class="col-md-4 p-4">
+
+					<div class="featured-item">
+
+						<img src="{{i.image.url}}" height="250px" width="100%" alt="">
+
+                        <h1 class="card-title text-center mt-2"><b><span style="text-transform:uppercase;">{{i.name}}</span></b></h1>
+                        <h2 class="card-text text-center">{{i.price}} Rs</h2>
+                        <div class="d-grid mx-auto">
+						<a href="{% url 'shop:details' i.id %}" class="btn bg-info">See More</a></div>
+					</div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

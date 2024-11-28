@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- Start Slider -->
+    <div id="slides-shop" class="cover-slides">
+        <ul class="slides-container">
+            <li class="text-center">
+                <img src="{% static 'images/banner-01.jpg' %}" height="200px" width=100%" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
+                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                            <p><a class="btn hvr-hover" href="{% url 'shop:categories' %}">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="text-center">
+                <img src="{% static 'images/banner-02.jpg' %}" height="200px" width=100%" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
+                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
+                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        </div>
+                    </div>
+                </div>
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+            </li></ul> </div>
+    <!-- End Slider -->
+
+<div class="container mt-5 p-5 " style="margin-bottom:100px;">
+    <h3 class="text-center">OUR COLLECTIONS</h3>
+    <p style="text-align:justify;line-height:2;font-size:20px;">We’re not your average fruit importers. We have expertise in sourcing the choicest of fresh fruits from around the world and distributing it across the length and breadth of India. Our top-notch distribution network strengthened through almost a century of existence in the fruit business, works efficiently to ensure the fruits are delivered far and wide with an intriguing depth of freshness. We provide fresh fruits online and fresh vegetables online.
+
+We have expertise in providing fresh fruits online and fresh vegetables online and offline and sourcing the choicest of fruits and vegetables from around the world</p>
+
+<div class="categories-shop">
+        <div class="container">
+            <div class="row">
+                {% for i in cat %}
+                <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+
+                        <img class="" src="{{i.image.url}}" alt="" height="350px" width="100%" />
+                        <div class="mx-auto">
+
+                            <a class="btn bg-info" href="{% url 'shop:product' i.id %}"><span style="text-transform:uppercase;">{{i.name}}</span></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div></div>
+        </div>
+    </div>
+{% endblock %}
